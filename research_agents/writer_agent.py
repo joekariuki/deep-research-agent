@@ -23,7 +23,7 @@ class ReportData(BaseModel):
 writer_agent = Agent(
     name="Writer Agent",
     instructions=instructions,
-    model=("gpt-5-mini"),
+    model="gpt-5-mini",
     output_type=ReportData,
 )
 
