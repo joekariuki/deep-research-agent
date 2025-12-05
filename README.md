@@ -216,13 +216,3 @@ planner_agent = Agent(
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## Acknowledgments
-
-- Built with [OpenAI Agents](https://github.com/openai/openai-agents)
-- UI powered by [Gradio](https://www.gradio.app/)
-- Email delivery via [SendGrid](https://sendgrid.com/)
