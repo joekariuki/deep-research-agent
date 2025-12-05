@@ -16,6 +16,19 @@ Deep Research is a multi-agent system that automates the entire research workflo
 
 The system features a user-friendly Gradio web interface for easy interaction and provides real-time progress updates throughout the research process.
 
+## Demo
+
+See the Deep Research in action:
+
+![Demo GIF showing the Deep Research workflow](demo.gif)
+
+The demo shows:
+
+- Entering a research query in the Gradio interface
+- Real-time progress updates as searches are planned and executed
+- The final comprehensive report being generated and displayed
+- Email delivery confirmation
+
 ## How it works
 
 The system consists of four specialized AI agents working together:
@@ -46,19 +59,6 @@ The system consists of four specialized AI agents working together:
 - Formats the report into clean HTML
 - Sends the report via SendGrid email service
 - Creates appropriate subject lines
-
-## Demo
-
-See the Deep Research in action:
-
-![Demo GIF showing the Deep Research workflow](demo.gif)
-
-The demo shows:
-
-- Entering a research query in the Gradio interface
-- Real-time progress updates as searches are planned and executed
-- The final comprehensive report being generated and displayed
-- Email delivery confirmation
 
 ## Features
 
