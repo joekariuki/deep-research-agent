@@ -1,5 +1,5 @@
 <div align="center">
-    <h1>Deep Research Agent</h1>
+    <h1>Deep Research</h1>
     <p>
         A multi-agent system that uses AI agents to perform comprehensive web research, synthesize findings into detailed reports, and deliver them via email.
     </p>
@@ -7,7 +7,7 @@
 
 ## Overview
 
-Deep Research Agent is a multi-agent system that automates the entire research workflow:
+Deep Research is a multi-agent system that automates the entire research workflow:
 
 1. **Planning**: An AI planner agent analyzes your query and creates a strategic search plan
 2. **Searching**: Multiple web searches are performed in parallel based on the plan
@@ -47,18 +47,18 @@ The system consists of four specialized AI agents working together:
 - Sends the report via SendGrid email service
 - Creates appropriate subject lines
 
-<!-- ## Demo
+## Demo
 
-See the Deep Research Agent in action:
+See the Deep Research in action:
 
-![Demo GIF showing the Deep Research Agent workflow](demo.gif)
+![Demo GIF showing the Deep Research workflow](demo.gif)
 
 The demo shows:
 
 - Entering a research query in the Gradio interface
 - Real-time progress updates as searches are planned and executed
 - The final comprehensive report being generated and displayed
-- Email delivery confirmation -->
+- Email delivery confirmation
 
 ## Features
 
@@ -188,7 +188,7 @@ deep-research-agent/
 Edit `research_agents/planner_agent.py` to change the `HOW_MANY_SEARCHES` constant:
 
 ```python
-HOW_MANY_SEARCHES = 5  # Change this value
+HOW_MANY_SEARCHES = 3  # Change this value
 ```
 
 ### Changing AI models
