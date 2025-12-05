@@ -1,37 +1,29 @@
 import os
 from typing import Dict
 
-from sendgrid import SendGridAPIClient
-from sendgrid.helpers.mail import Mail
+import sendgrid
+from sendgrid.helpers.mail import Email, Mail, Content, To
 from agents import Agent, function_tool
-
-EMAIL_FROM = os.environ.get("EMAIL_FROM")
-EMAIL_TO = os.environ.get("EMAIL_TO")
-SENDGRID_API_KEY = os.environ.get("SENDGRID_API_KEY")
 
 @function_tool
 def send_email(subject: str, html_body: str) -> Dict[str, str]:
     """
     Send an email with the given subject and HTML body.
     """
-    # Check if the environment variables are set
-    if not SENDGRID_API_KEY:
+    sendgrid_api_key = os.environ.get('SENDGRID_API_KEY')
+    email_from = os.environ.get('EMAIL_FROM')
+    email_to = os.environ.get('EMAIL_TO')
+    
+    if not sendgrid_api_key:
         raise ValueError("SENDGRID_API_KEY environment variable is not set")
-    if not EMAIL_FROM:
-        raise ValueError("EMAIL_FROM environment variable is not set")
-    if not EMAIL_TO:
-        raise ValueError("EMAIL_TO environment variable is not set")
     
-    sg = SendGridAPIClient(api_key=SENDGRID_API_KEY)
+    sg = sendgrid.SendGridAPIClient(api_key=sendgrid_api_key)
+    from_email = Email(email_from)
+    to_email = To(email_to)
+    content = Content("text/html", html_body)
+    mail = Mail(from_email, to_email, subject, content).get()
     
-    message = Mail(
-        from_email=EMAIL_FROM,
-        to_emails=EMAIL_TO,
-        subject=subject,
-        html_content=html_body
-    )
-    
-    response = sg.send(message)
+    response = sg.client.mail.send.post(request_body=mail)
     print("Email response:", response.status_code)
     return {"status": "success"}
 
@@ -45,5 +37,5 @@ email_agent = Agent(
     name="Email Agent",
     instructions=instructions,
     tools=[send_email],
-    model=("gpt-5-mini"),
+    model="gpt-5-mini",
 )
