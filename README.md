@@ -166,7 +166,7 @@ asyncio.run(main())
 ## Project structure
 
 ```
-deep-research-agent/
+deep-research/
 ├── deep_research.py          # Main entry point with Gradio UI
 ├── research_agents/
 │   ├── __init__.py
@@ -213,7 +213,7 @@ planner_agent = Agent(
 - Ensure your SendGrid account is verified
 - Check SendGrid dashboard for any delivery issues
 
-### Search dailures
+### Search failures
 
 - Verify your OpenAI API key is valid and has sufficient credits
 - Check your internet connection
