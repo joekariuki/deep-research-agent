@@ -1,6 +1,9 @@
-# Deep Research Agent
-
-An intelligent research automation system that uses AI agents to perform comprehensive web research, synthesize findings into detailed reports, and deliver them via email. Built with OpenAI Agents, Gradio, and SendGrid.
+<div align="center">
+    <h1>Deep Research Agent</h1>
+    <p>
+        A multi-agent system that uses AI agents to perform comprehensive web research, synthesize findings into detailed reports, and deliver them via email.
+    </p>
+</div>
 
 ## Overview
 
@@ -13,45 +16,36 @@ Deep Research Agent is a multi-agent system that automates the entire research w
 
 The system features a user-friendly Gradio web interface for easy interaction and provides real-time progress updates throughout the research process.
 
-## How It Works
+## How it works
 
 The system consists of four specialized AI agents working together:
 
-### 1. Planner Agent
+### 1. Planner agent
 
 - Analyzes your research query
 - Generates a strategic plan with multiple search terms (default: 5 searches)
 - Provides reasoning for each search query
 - Uses GPT-5-mini model for efficient planning
 
-### 2. Search Agent
+### 2. Search agent
 
 - Performs web searches using OpenAI's WebSearchTool
 - Summarizes search results into concise 2-3 paragraph summaries
 - Executes searches in parallel for faster results
 - Uses GPT-5-mini model with required tool usage
 
-### 3. Writer Agent
+### 3. Writer agent
 
 - Synthesizes all search results into a cohesive report
 - Creates detailed markdown reports (5-10 pages, 1000+ words)
 - Generates a short summary and follow-up questions
 - Uses GPT-5-mini model for report generation
 
-### 4. Email Agent
+### 4. Email agent
 
 - Formats the report into clean HTML
 - Sends the report via SendGrid email service
 - Creates appropriate subject lines
-
-## Features
-
-- **Multi-Agent Architecture**: Specialized agents for each stage of research
-- **Parallel Web Searching**: Multiple searches executed simultaneously
-- **Comprehensive Reports**: Detailed markdown reports with summaries and follow-up questions
-- **Email Delivery**: Automatic email delivery via SendGrid
-- **Web Interface**: User-friendly Gradio UI with real-time updates
-- **Traceability**: OpenAI trace links for debugging and monitoring
 
 <!-- ## Demo
 
@@ -66,6 +60,24 @@ The demo shows:
 - The final comprehensive report being generated and displayed
 - Email delivery confirmation -->
 
+## Features
+
+- **Multi-agent architecture**: specialized agents for each stage of research
+- **Parallel web searching**: multiple searches executed simultaneously
+- **Comprehensive reports**: cetailed markdown reports with summaries and follow-up questions
+- **Email delivery**: automatic email delivery via SendGrid
+- **Web interface**: user-friendly Gradio UI with real-time updates
+- **Traceability**: OpenAI trace links for debugging and monitoring
+
+## Tech stack
+
+- **Python 3.12+**: core programming language
+- **OpenAI Agents SDK**: AI agent framework for multi-agent orchestration
+- **Gradio**: web interface framework for interactive UI
+- **SendGrid**: email delivery service for report distribution
+- **python-dotenv**: environment variable management
+- **Pydantic**: data validation and settings management
+
 ## Prerequisites
 
 - Python 3.12 or higher
@@ -75,21 +87,21 @@ The demo shows:
 
 ## Installation
 
-### 1. Clone the Repository
+### 1. Clone the repository
 
 ```bash
 git clone <repository-url>
 cd deep-research-agent
 ```
 
-### 2. Create a Virtual Environment
+### 2. Create a virtual environment
 
 ```bash
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 ```
 
-### 3. Install Dependencies
+### 3. Install dependencies
 
 Using `uv` (recommended):
 
@@ -103,7 +115,7 @@ Or using `pip`:
 pip install -r requirements.txt
 ```
 
-### 4. Set Up Environment Variables
+### 4. Set up environment variables
 
 Create a `.env` file in the project root with the following variables:
 
@@ -116,14 +128,14 @@ EMAIL_TO=your_recipient_email@example.com
 
 **Note**: Make sure to add `.env` to your `.gitignore` file to keep your API keys secure.
 
-### 5. Get API Keys
+### 5. Get API keys
 
 - **OpenAI API Key**: Sign up at [OpenAI Platform](https://platform.openai.com/) and create an API key
 - **SendGrid API Key**: Sign up at [SendGrid](https://sendgrid.com/) and create an API key in Settings > API Keys
 
 ## Usage
 
-### Running the Web Interface
+### Running the web interface
 
 Start the Gradio web interface:
 
@@ -133,7 +145,7 @@ python deep_research.py
 
 The interface will open in your browser at `http://127.0.0.1:7860`. Enter your research query in the text box and click "Run" or press Enter.
 
-### Using Programmatically
+### Using programmatically
 
 You can also use the `ResearchManager` class directly in your Python code:
 
@@ -151,7 +163,7 @@ async def main():
 asyncio.run(main())
 ```
 
-## Project Structure
+## Project structure
 
 ```
 deep-research-agent/
@@ -171,7 +183,7 @@ deep-research-agent/
 
 ## Configuration
 
-### Adjusting Number of Searches
+### Adjusting number of searches
 
 Edit `research_agents/planner_agent.py` to change the `HOW_MANY_SEARCHES` constant:
 
@@ -179,7 +191,7 @@ Edit `research_agents/planner_agent.py` to change the `HOW_MANY_SEARCHES` consta
 HOW_MANY_SEARCHES = 5  # Change this value
 ```
 
-### Changing AI Models
+### Changing AI models
 
 All agents currently use `gpt-5-mini`. To use different models, update the `model` parameter in each agent file:
 
@@ -194,20 +206,20 @@ planner_agent = Agent(
 
 ## Troubleshooting
 
-### Email Not Sending
+### Email not sending
 
 - Verify your SendGrid API key is correct
 - Check that `EMAIL_FROM` and `EMAIL_TO` are valid email addresses
 - Ensure your SendGrid account is verified
 - Check SendGrid dashboard for any delivery issues
 
-### Search Failures
+### Search dailures
 
 - Verify your OpenAI API key is valid and has sufficient credits
 - Check your internet connection
 - Review the trace link provided in the console output for detailed error information
 
-### Import Errors
+### Import errors
 
 - Ensure all dependencies are installed: `pip install -r requirements.txt`
 - Verify you're using Python 3.12 or higher
