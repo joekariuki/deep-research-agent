@@ -20,8 +20,14 @@ class ResearchManager:
             print("Starting research...")
             search_plan = await self.plan_searches(query)
             yield "Searches planned, starting to search..."
+            search_results = await self.perform_searches(search_plan)
+            yield "Searches complete, writing report..."
+            report = await self.write_report(query, search_results)
+            yield "Report written, sending email..."
+            await self.send_email(report)
+            yield "Email sent, research completed"
+            yield report.markdown_report
         
-    
     async def plan_searches(self, query: str) -> WebSearchPlan:
         """
         Plan the searches to perform for the query.
