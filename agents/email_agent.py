@@ -33,5 +33,5 @@ email_agent = Agent(
     name="Email Agent",
     instructions=instructions,
     tools=[send_email],
-    model=("gpt-4o-mini"),
+    model=("gpt-5-mini"),
 )
